@@ -10,11 +10,15 @@ public class Respon {
     int nilai;
     Connection conn;
 
-    
     // constructor
     // parameter : int idPengguna, int idKuis
-    public Respon(int idPengguna, int idKuis){
-        this.conn = new DBconnect().getConn();
+    public Respon(int idPengguna, int idKuis) {
+        try {
+            this.conn = DBconnect.connect();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         this.idPengguna = idPengguna;
         this.idKuis = idKuis;
         this.nilai = 0;

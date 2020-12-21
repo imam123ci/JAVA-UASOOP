@@ -11,8 +11,12 @@ public class Pengguna {
     Connection conn;
 
     // empty constructor for sql outside model
-    public Pengguna(){
-        this.conn = new DBconnect().getConn();
+    public Pengguna() {
+        try {
+            this.conn = DBconnect.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }
 

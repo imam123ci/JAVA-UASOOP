@@ -12,17 +12,22 @@ public class Kuis {
     public List<Pertanyaan> pertanyaans;
     Connection con;
 
-
     // constuctor when select kuis from databases based on kode kuis
     // Parameter : String kode-> kode kuis
     // Output : None
-    public Kuis(String kode){
+    public Kuis(String kode) {
         // get Kuis from databases
-        this.con = new DBconnect().getConn();
-        String q = "SELECT `idKuis`,`judul`, `kode`, `idPengguna` FROM `Kuis` WHERE `kode`=:kkuis";
-        Kuis k = this.con.createQuery(q)
-        .addParameter("kkuis", kode)
-        .executeAndFetchFirst(Kuis.class);
+        Kuis k = null;
+        try {
+            this.con = DBconnect.connect();
+            String q = "SELECT `idKuis`,`judul`, `kode`, `idPengguna` FROM `Kuis` WHERE `kode`=:kkuis";
+            k = this.con.createQuery(q)
+            .addParameter("kkuis", kode)
+            .executeAndFetchFirst(Kuis.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
         
         if(k != null){
             this.idKuis = k.idKuis;

@@ -1,6 +1,5 @@
 package model;
 
-
 import org.sql2o.Connection;
 
 import java.util.List;
@@ -12,15 +11,22 @@ public class Jawaban {
     int idPertanyaan;
     Connection conn;
 
-    
     // empty constructor for sql outside model
     public Jawaban(){
-        this.conn = new DBconnect().getConn();
+        try {
+            this.conn = DBconnect.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
     // constuctor when you have the data
-    public Jawaban(int idJawaban, String jawaban, boolean isAnswer, int idPertanyaan){
-        this.conn = new DBconnect().getConn();
+    public Jawaban(int idJawaban, String jawaban, boolean isAnswer, int idPertanyaan) {
+        try {
+            this.conn = DBconnect.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         this.idJawaban = idJawaban;
         this.jawaban = jawaban;
         this.isAnswer = isAnswer;

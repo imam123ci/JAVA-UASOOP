@@ -11,14 +11,21 @@ public class Pertanyaan {
     public List<Jawaban> jawabans;
     Connection con;
 
-    // empty constructor for sql outside model
     public Pertanyaan(){
-        this.con = new DBconnect().getConn();
+        try {
+            this.con = DBconnect.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // constructor where you have bunch of data. LOL
-    public Pertanyaan(int idPertanyaan, String pertanyaan, int idKuis){
-        this.con = new DBconnect().getConn();
+    public Pertanyaan(int idPertanyaan, String pertanyaan, int idKuis) {
+        try {
+            this.con = DBconnect.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.idPertanyaan = idPertanyaan;
         this.pertanyaan = pertanyaan;
         this.idKuis = idKuis;
