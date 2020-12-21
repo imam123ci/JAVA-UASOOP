@@ -1,14 +1,13 @@
-import model.Jawaban;
 
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+
 
 public class Jawab extends JFrame{
-
+    private static final long serialVersionUID = 1L;
     public Jawab() {
 
         setTitle("Kuisis");

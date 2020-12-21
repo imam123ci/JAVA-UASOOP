@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import model.Pengguna;
 
 public class Register extends JFrame {
-
+    private static final long serialVersionUID = 1L;
     public Register(){
         setTitle("Register");
         setSize(500,250);
@@ -21,7 +21,7 @@ public class Register extends JFrame {
     }
 }
 class regis extends JPanel{
-
+    private static final long serialVersionUID = 1L;
     static JTextField FullName = new JTextField();
     static JTextField Email = new JTextField();
     static JPasswordField Passw = new JPasswordField();
@@ -44,6 +44,7 @@ class regis extends JPanel{
         }
 
         class ButtonPanel extends JPanel{
+            private static final long serialVersionUID = 1L;
             JButton btnDaftar = new JButton("Submit");
             JButton btnClose = new JButton("Close");
         ButtonPanel(){

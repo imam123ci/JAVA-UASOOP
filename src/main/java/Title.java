@@ -10,7 +10,7 @@ import model.Kuis;
 import model.Session;
 
 public class Title extends JFrame {
-
+    private static final long serialVersionUID = 1L;
     public Title(){
         setTitle("Kuisis");
         setSize(600, 250);
@@ -22,7 +22,7 @@ public class Title extends JFrame {
     }
 }
 class kuis extends JPanel {
-
+    private static final long serialVersionUID = 1L;
     static JTextField judul = new JTextField();
     static JTextField kode = new JTextField();
 
@@ -44,7 +44,7 @@ class kuis extends JPanel {
     }
 
     class ButtonPanel extends JPanel {
-
+        private static final long serialVersionUID = 1L;
         JButton btnSubmit = new JButton("Buat");
         JButton btnEdit = new JButton("Edit");
         JButton btnClose = new JButton("Batal");

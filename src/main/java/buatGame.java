@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class buatGame extends JFrame {
+    private static final long serialVersionUID = 1L;
     public buatGame(){
         setTitle("Kuisis");
         setSize(530,550);

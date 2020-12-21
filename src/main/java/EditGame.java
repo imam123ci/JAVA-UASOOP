@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class EditGame extends JFrame{
-
+    private static final long serialVersionUID = 1L;
     public EditGame() {
 
         setTitle("Kuisis");

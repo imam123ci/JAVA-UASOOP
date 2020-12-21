@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import model.Pengguna;
 
 public class Login extends JFrame {
-
+    private static final long serialVersionUID = 1L;
 
     public Login() {
         setTitle("Login");
@@ -25,6 +25,7 @@ public class Login extends JFrame {
 }
 
 class log extends JPanel {
+    private static final long serialVersionUID = 1L;
     static JTextField mail = new JTextField();
     static JPasswordField pass = new JPasswordField();
     JFrame rootFrame;
@@ -47,7 +48,7 @@ class log extends JPanel {
     }
 
     class ButtonPanel extends JPanel {
-
+        private static final long serialVersionUID = 1L;
         JButton btnSubmit = new JButton("Submit");
         JButton btnClose = new JButton("Close");
         JFrame rootFrame;
