@@ -15,7 +15,7 @@ public class Jawab extends JFrame{
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
-        
+
         JLabel tanyaLabel = new JLabel("Pertanyaan");
         tanyaLabel.setBounds(50, 10, 200, 30);
         tanyaLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));

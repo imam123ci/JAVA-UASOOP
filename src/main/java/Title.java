@@ -48,19 +48,22 @@ class kuis extends JPanel {
         JButton btnSubmit = new JButton("Buat");
         JButton btnEdit = new JButton("Edit");
         JButton btnClose = new JButton("Batal");
-
+        JButton btnDelete = new JButton("Hapus");
         ButtonPanel() {
             add(btnSubmit);
             add(btnEdit);
             add(btnClose);
+            add(btnDelete);
             btnSubmit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    // Insert new Kuis and return primary key
 
                     Kuis k = new Kuis(judul.getText(),kode.getText(), Session.idPengguna);
-                    k.save();
+                    k.kode = kode.getText() != "" ? kode.getText() : k.generateKode();
+                    int kuisId = k.save();
                     //boolean kuisStatus = k.save() != -1 ? true : false;
-                    new buatGame().setVisible(true);
+                    new buatGame(kuisId).setVisible(true);
 
                 }
             });
@@ -69,6 +72,12 @@ class kuis extends JPanel {
                 public void actionPerformed(ActionEvent e) {
 
                     new EditGame().setVisible(true);
+
+                }
+            });
+            btnDelete.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
 
                 }
             });

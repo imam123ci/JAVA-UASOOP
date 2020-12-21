@@ -31,6 +31,8 @@ public class Pertanyaan {
         this.idKuis = idKuis;
     }
 
+
+
     // get pertanyaan by Id Kuis
     // Parameter : int idKuis
     // Output : List<Pertanyaan> -> results list
@@ -72,11 +74,11 @@ public class Pertanyaan {
     // Parameter : 
     // Output : int->primary key
     public int save(){
-        String q = "INSERT INTO `Pertanyaan`( `pertanyaan`, `idKuis`) VALUES (:pertanyaan, :idkuis)";
+        String q = "INSERT INTO `Pertanyaan`( `pertanyaan`, `idKuis`) VALUES (:pertanyaan,:idkuis)";
 
         int k = this.con.createQuery(q, true)
         .addParameter("pertanyaan", this.pertanyaan)
-        .addParameter("idKuis", this.idKuis)
+        .addParameter("idkuis", this.idKuis)
         .executeUpdate()
         .getKey(int.class);
 

@@ -8,7 +8,7 @@ public class Jawaban {
     public int idJawaban;
     public String jawaban;
     public boolean isAnswer;
-    int idPertanyaan;
+    public int idPertanyaan;
     Connection conn;
 
     // empty constructor for sql outside model
@@ -51,10 +51,11 @@ public class Jawaban {
     // Output : 
     public int save(){
         //query
-        String q = "INSERT INTO `Jawaban` (`jawaban`, `isAnswer`, `idPertanyaan`) VALUES (:jawaban,:isAnswer );";
+        String q = "INSERT INTO `Jawaban` (`jawaban`, `isAnswer`, `idPertanyaan`) VALUES (:jawaban,:isAnswer,:idPertanyaan);";
         int k = this.conn.createQuery(q,true)
         .addParameter("jawaban", this.jawaban)
         .addParameter("isAnswer", this.isAnswer)
+                .addParameter("idPertanyaan", this.idPertanyaan)
         .executeUpdate()
         .getKey(int.class);
 

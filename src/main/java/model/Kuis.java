@@ -1,5 +1,5 @@
 package model;
-
+import java.util.UUID;
 import org.sql2o.Connection;
 
 import java.util.List;
@@ -11,7 +11,21 @@ public class Kuis {
     public String kode;
     public List<Pertanyaan> pertanyaans;
     Connection con;
+    public Kuis() {
 
+        try {
+
+            this.con = DBconnect.connect();
+
+        }
+
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
     // constuctor when select kuis from databases based on kode kuis
     // Parameter : String kode-> kode kuis
     // Output : None
@@ -73,7 +87,57 @@ public class Kuis {
 
         return k;
     }
+// get All Kuis
 
+    // parameter :
+
+    // output : List<Kuis>
+    public String generateKode(){
+
+        String uuid = UUID.randomUUID().toString();
+
+        this.kode = uuid.substring(0, 8);
+        return this.kode;
+    }
+
+
+    public List<Kuis> getAll(){
+
+        String q = "SELECT * FROM `Kuis`";
+
+        return (
+
+                this.con.createQuery(q)
+
+                        .executeAndFetch(Kuis.class)
+
+        );
+
+    }
+
+
+
+    // get All Kuis By Id
+
+    // parameter :
+
+    // output : List<Kuis>
+
+    public List<Kuis> getByIdPengguna(){
+
+        String q = "SELECT * FROM `Kuis` WHERE `idPengguna`=:idPengguna";
+
+        return (
+
+                this.con.createQuery(q)
+
+                        .addParameter("idPengguna", this.idPengguna)
+
+                        .executeAndFetch(Kuis.class)
+
+        );
+
+    }
     // update kuis to databases
     // Parameter : 
     // Output :
