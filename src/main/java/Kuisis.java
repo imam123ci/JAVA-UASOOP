@@ -13,7 +13,7 @@ public class Kuisis extends JFrame {
         setTitle("Kuisis");
         setSize(400, 365);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);

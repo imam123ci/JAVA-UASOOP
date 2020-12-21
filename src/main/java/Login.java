@@ -15,43 +15,46 @@ public class Login extends JFrame {
     public Login() {
         setTitle("Login");
         setSize(600, 200);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(new log());
+        add(new log(this));
 
         setVisible(true);
     }
 }
+
 class log extends JPanel {
     static JTextField mail = new JTextField();
     static JPasswordField pass = new JPasswordField();
+    JFrame rootFrame;
 
-
-    log() {
+    log(JFrame rootFrame) {
         setLayout(new GridLayout(3, 2));
         add(new JLabel("email"));
         add(mail);
         add(new JLabel("password"));
         add(pass);
         add(new JLabel(" "));
-        add(new ButtonPanel());
+        add(new ButtonPanel(rootFrame));
 
         Border etchedBorder = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
         TitledBorder titledBorder = BorderFactory.createTitledBorder(etchedBorder, "login");
         titledBorder.setTitleFont(titledBorder.getTitleFont().deriveFont(Font.BOLD));
         setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 10, 10), titledBorder));
 
+        this.rootFrame = rootFrame;
     }
 
     class ButtonPanel extends JPanel {
 
         JButton btnSubmit = new JButton("Submit");
         JButton btnClose = new JButton("Close");
-
-        ButtonPanel() {
+        JFrame rootFrame;
+        ButtonPanel(JFrame rootFrame) {
             add(btnSubmit);
             add(btnClose);
+            this.rootFrame = rootFrame;
             btnSubmit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -76,8 +79,9 @@ class log extends JPanel {
 
             btnClose.addActionListener(new ActionListener() {
                 @Override
+                
                 public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
+                    ButtonPanel.this.rootFrame.dispose();
                 }
             });
         }

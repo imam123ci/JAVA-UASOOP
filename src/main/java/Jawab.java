@@ -1,5 +1,4 @@
 import model.Jawaban;
-import org.sql2o.Connection;
 
 import javax.swing.*;
 
