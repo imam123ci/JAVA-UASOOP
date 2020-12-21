@@ -17,9 +17,7 @@ public class Jawab extends JFrame{
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
-
-
-
+        
         JLabel tanyaLabel = new JLabel("Pertanyaan");
         tanyaLabel.setBounds(50, 10, 200, 30);
         tanyaLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
@@ -33,45 +31,34 @@ public class Jawab extends JFrame{
         pilLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         add(pilLabel);
 
-        JLabel pilALabel = new JLabel("A.");
-        pilALabel.setBounds(50, 110, 70, 30);
-        pilALabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        add(pilALabel);
+        JCheckBox checkboxA = new JCheckBox();
+        checkboxA.setBounds(50, 110, 20, 20);
+        add(checkboxA);
         JTextField pilATextField = new JTextField();
         pilATextField.setBounds(80, 110, 370, 30);
         add(pilATextField);
 
-        JLabel pilBLabel = new JLabel("B.");
-        pilBLabel.setBounds(50, 160, 70, 30);
-        pilBLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        add(pilBLabel);
+        JCheckBox checkboxB = new JCheckBox();
+        checkboxB.setBounds(50, 160, 20, 20);
+        add(checkboxB);
         JTextField pilBTextField = new JTextField();
         pilBTextField.setBounds(80, 160, 370, 30);
         add(pilBTextField);
 
-        JLabel pilCLabel = new JLabel("C.");
-        pilCLabel.setBounds(50, 210, 70, 30);
-        pilCLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        add(pilCLabel);
+        JCheckBox checkboxC = new JCheckBox();
+        checkboxC.setBounds(50, 210, 20, 20);
+        add(checkboxC);
         JTextField pilCTextField = new JTextField();
         pilCTextField.setBounds(80, 210, 370, 30);
         add(pilCTextField);
 
-        JLabel pilDLabel = new JLabel("D.");
-        pilDLabel.setBounds(50, 260, 70, 30);
-        pilDLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        add(pilDLabel);
+        JCheckBox checkboxD = new JCheckBox();
+        checkboxD.setBounds(50, 260, 20, 20);
+        add(checkboxD);
         JTextField pilDTextField = new JTextField();
         pilDTextField.setBounds(80, 260, 370, 30);
         add(pilDTextField);
 
-        JLabel dijawabLabel = new JLabel("Jawaban (A/B/C/D) :");
-        dijawabLabel.setBounds(50, 310, 300, 30);
-        dijawabLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        add(dijawabLabel);
-        JTextField dijawabTextField = new JTextField();
-        dijawabTextField.setBounds(250, 310, 200, 30);
-        add(dijawabTextField);
 
         JButton nextButton = new JButton("NEXT");
         nextButton.setBounds(250, 385, 200, 30);
