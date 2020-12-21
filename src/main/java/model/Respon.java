@@ -42,7 +42,7 @@ public class Respon {
     // Parameter : 
     // Output : 
     public void save() {
-        String q = "INSERT INTO `Respon`(`idPengguna`, `idKuis`, `nilai`) VALUES (:idPengguna,:idKuis,:nilai)";
+        String q = "INSERT INTO `Respons`(`idPengguna`, `idKuis`, `nilai`) VALUES (:idPengguna,:idKuis,:nilai)";
         this.conn.createQuery(q)
             .addParameter("idPengguna", this.idPengguna)
             .addParameter("idKuis", this.idKuis)
@@ -54,7 +54,7 @@ public class Respon {
     // Parameter : int idKuis;
     // output : List<Respon>->query results;
     public List<Respon> getByIdKuis(int idKuis){
-        String q = "SELECT * FROM `Respon` WHERE `idKuis`=:idKuis";
+        String q = "SELECT * FROM `Respons` WHERE `idKuis`=:idKuis";
         return(
             this.conn.createQuery(q)
             .addParameter("idKuis", idKuis)
@@ -66,7 +66,7 @@ public class Respon {
     // Parameter : int idPengguna;
     // output : List<Respon>->query results;
     public List<Respon> getByIdPengguna(int idPengguna){
-        String q = "SELECT * FROM `Respon` WHERE `idPengguna`=:idPengguna";
+        String q = "SELECT * FROM `Respons` WHERE `idPengguna`=:idPengguna";
         return(
             this.conn.createQuery(q)
             .addParameter("idPengguna", idPengguna)
