@@ -1,8 +1,11 @@
+
 // import javax.swing.*;
 // import java.sql.SQLException;
-//import model.Kuis;
+
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) {     
+
         new Kuisis();
         //new Title();
         //new Jawab();

@@ -17,12 +17,16 @@ public class Pengguna {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
 
     // Login Constructor
-    public Pengguna(String email, String pass){
-        this.conn = new DBconnect().getConn();
+    public Pengguna(String email, String pass) {
+        try {
+            this.conn = DBconnect.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
         this.email = email;
         this.password = pass;

@@ -16,7 +16,6 @@ public class Respon {
         try {
             this.conn = DBconnect.connect();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         this.idPengguna = idPengguna;
