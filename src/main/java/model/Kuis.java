@@ -159,7 +159,8 @@ public class Kuis {
     public void delete(){
         String q = "DELETE FROM `Kuis` WHERE `idKuis` = :id";
         this.con.createQuery(q)
-        .addParameter("id", this.idKuis);
+        .addParameter("id", this.idKuis)
+        .executeUpdate();
     }
 
 

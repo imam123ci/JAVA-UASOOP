@@ -68,7 +68,7 @@ public class ResponKuis extends JFrame{
     //get Data
     // set class Kuis variable
     void getData(String kodeKuis){
-        kuis = new Kuis("1u32");
+        kuis = new Kuis(kodeKuis);
         this.petanyaans = kuis.getPertanyaan();
         this.responLength = this.petanyaans.size();
     }
@@ -107,7 +107,7 @@ public class ResponKuis extends JFrame{
             tanyaLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
             add(tanyaLabel);
     
-            JLabel pilLabel = new JLabel("Pilih Jawaba :");
+            JLabel pilLabel = new JLabel("Pilih Jawaban :");
             pilLabel.setBounds(50, 60, 400, 30);
             pilLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
             add(pilLabel);

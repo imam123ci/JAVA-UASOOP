@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class TampilinDaftar extends JFrame {
     TampilinDaftar(){
         setTitle("My Kuisis");
-        setSize(700, 800);
+        setSize(700, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
@@ -22,22 +22,21 @@ public class TampilinDaftar extends JFrame {
 class listDaftar extends JPanel {
     static JTextField daftar = new JTextField();
     JTextField hapusTextField = new JTextField();
-    JButton btnDelete = new JButton("Hapus");
+
     int kuisId;
     listDaftar() {
         setLayout(new GridLayout(6,1));
         this.kuisId = kuisId;
         add(new JLabel("My Kuisis"));
         add(new DaftarGame());
-        add(new ButtonPanel());
         add(new JLabel("kuis ID :"));
         add(hapusTextField);
-        add(btnDelete);
+        add(new ButtonPanel());
 
     }
     class ButtonPanel extends JPanel {
         private static final long serialVersionUID = 1L;
-        JTextField hapusTextField = new JTextField();
+
         JButton btnAdd = new JButton("Tambah");
         JButton btnClose = new JButton("Batal");
         JButton btnDelete = new JButton("Hapus");
@@ -45,6 +44,7 @@ class listDaftar extends JPanel {
         ButtonPanel() {
             add(btnAdd);
             add(btnClose);
+            add(btnDelete);
             //add(btnSubmit);
             //            add(btnEdit);
             //            add(btnClose);
@@ -69,7 +69,9 @@ class listDaftar extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Kuis K= new Kuis();
-                    K.idKuis= Integer.parseInt(ButtonPanel.this.hapusTextField.getText());
+                    String idKuis = listDaftar.this.hapusTextField.getText();
+                    K.idKuis= Integer.parseInt(idKuis);
+                    System.out.println(K.idKuis);
                     K.delete();
                 }
             });
