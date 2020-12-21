@@ -19,7 +19,7 @@ public class Kuisis extends JFrame {
         pinLabel.setBounds(20, 10, 200, 30);
         pinLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
         add(pinLabel);
-        JTextField pinTextField = new JTextField();
+        final JTextField pinTextField = new JTextField();
         pinTextField.setBounds(110, 10, 250, 30);
         add(pinTextField);
 
@@ -72,11 +72,12 @@ public class Kuisis extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //getjawab
-                new Jawab().setVisible(true);
+                new ResponKuis(pinTextField.getText()).setVisible(true);
             }
         });
 
         setVisible(true);
-    }
+
+   }
 
 }

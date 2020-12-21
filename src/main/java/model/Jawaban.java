@@ -5,9 +5,9 @@ import org.sql2o.Connection;
 import java.util.List;
 
 public class Jawaban {
-    int idJawaban;
-    String jawaban;
-    boolean isAnswer;
+    public int idJawaban;
+    public String jawaban;
+    public boolean isAnswer;
     int idPertanyaan;
     Connection conn;
 
@@ -37,7 +37,7 @@ public class Jawaban {
     // Parameter : int idpertanyaan;
     // output : List<Jawaban>->query results;
     public List<Jawaban> getByIdPertanyaan(int idPertanyaan){
-        String q = "SELECT * FROM `Jawaban WHERE idPertanyaan=:idPertanyaan`";
+        String q = "SELECT * FROM `Jawaban` WHERE idPertanyaan=:idPertanyaan";
         return (
             this.conn.createQuery(q)
             .addParameter("idPertanyaan", idPertanyaan)

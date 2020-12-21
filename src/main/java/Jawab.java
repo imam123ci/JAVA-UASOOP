@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 public class Jawab extends JFrame{
     private static final long serialVersionUID = 1L;
     public Jawab() {
-
         setTitle("Kuisis");
         setSize(530, 550);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -67,7 +66,7 @@ public class Jawab extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new EditGame().setVisible(true);
-
+                
             }
         });
         JButton closeButton = new JButton("Close");
@@ -77,7 +76,7 @@ public class Jawab extends JFrame{
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                Jawab.this.dispose();
             }
         });
 
@@ -85,5 +84,7 @@ public class Jawab extends JFrame{
 
         setVisible(true);
     }
+
+   
 
 }

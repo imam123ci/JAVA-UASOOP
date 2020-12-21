@@ -15,7 +15,7 @@ public class Pertanyaan {
         try {
             this.con = DBconnect.connect();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.print(e);
         }
     }
 
@@ -24,7 +24,7 @@ public class Pertanyaan {
         try {
             this.con = DBconnect.connect();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.print(e);
         }
         this.idPertanyaan = idPertanyaan;
         this.pertanyaan = pertanyaan;
@@ -47,6 +47,7 @@ public class Pertanyaan {
     // Parameter :
     // Output : Jawaban -> result 
     public Jawaban getRightJawaban(){
+        
         String q = "SELECT * FROM `Jawaban` WHERE `isAnswer`=true AND `idPertanyaan`=:idPertanyaan";
         Jawaban j = this.con.createQuery(q)
                     .addParameter("idPertanyaan", this.idPertanyaan)
