@@ -46,14 +46,12 @@ class kuis extends JPanel {
     class ButtonPanel extends JPanel {
         private static final long serialVersionUID = 1L;
         JButton btnSubmit = new JButton("Buat");
-        JButton btnEdit = new JButton("Edit");
         JButton btnClose = new JButton("Batal");
-        JButton btnDelete = new JButton("Hapus");
+
         ButtonPanel() {
             add(btnSubmit);
-            add(btnEdit);
             add(btnClose);
-            add(btnDelete);
+
             btnSubmit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -67,20 +65,8 @@ class kuis extends JPanel {
 
                 }
             });
-            btnEdit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
 
-                    new EditGame().setVisible(true);
 
-                }
-            });
-            btnDelete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                }
-            });
             btnClose.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

@@ -9,58 +9,68 @@ import java.sql.SQLException;
 
 public class TampilinDaftar extends JFrame {
     TampilinDaftar(){
-        setTitle("Login");
-        setSize(1000, 1000);
+        setTitle("My Kuisis");
+        setSize(700, 800);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(new DaftarGame());
+        add(new listDaftar());
         setVisible(true);
 
     }
 }
 class listDaftar extends JPanel {
     static JTextField daftar = new JTextField();
-
+    JTextField hapusTextField = new JTextField();
+    JButton btnDelete = new JButton("Hapus");
+    int kuisId;
     listDaftar() {
+        setLayout(new GridLayout(6,1));
+        this.kuisId = kuisId;
         add(new JLabel("My Kuisis"));
-
+        add(new DaftarGame());
+        add(new ButtonPanel());
+        add(new JLabel("kuis ID :"));
+        add(hapusTextField);
+        add(btnDelete);
 
     }
-
     class ButtonPanel extends JPanel {
         private static final long serialVersionUID = 1L;
-
-        JButton btnEdit = new JButton("Edit");
+        JTextField hapusTextField = new JTextField();
+        JButton btnAdd = new JButton("Tambah");
         JButton btnClose = new JButton("Batal");
         JButton btnDelete = new JButton("Hapus");
 
         ButtonPanel() {
+            add(btnAdd);
+            add(btnClose);
             //add(btnSubmit);
             //            add(btnEdit);
             //            add(btnClose);
             //            add(btnDelete);
-
-            btnEdit.addActionListener(new ActionListener() {
+            btnAdd.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
-                    new EditGame().setVisible(true);
-
+                    new Title().setVisible(true);
                 }
             });
-            btnDelete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Kuis K= new Kuis();
-                    K.idKuis= 1;
-                            K.delete();
-                }
-            });
+
             btnClose.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.exit(0);
+                }
+            });
+
+
+
+            btnDelete.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Kuis K= new Kuis();
+                    K.idKuis= Integer.parseInt(ButtonPanel.this.hapusTextField.getText());
+                    K.delete();
                 }
             });
         }

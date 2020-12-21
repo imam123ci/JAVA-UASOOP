@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class Hasil extends JFrame {
     private static final long serialVersionUID = 1L;
-    public Hasil(){
+    public Hasil(int score){
         setTitle("Total Score");
         setSize(320, 250);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -17,7 +17,7 @@ public class Hasil extends JFrame {
         hasilLabel.setBounds(50, 10, 200, 30);
         hasilLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
         add(hasilLabel);
-        JLabel scoreLabel = new JLabel();
+        JLabel scoreLabel = new JLabel(String.valueOf(score));
         scoreLabel.setBounds(50, 50, 200, 45);
         add(scoreLabel);
 

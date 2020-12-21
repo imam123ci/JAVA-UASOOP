@@ -67,7 +67,7 @@ class log extends JPanel {
 
                         if (loginStatus) {
                             JOptionPane.showMessageDialog(null, "berhasil login");
-                            new Title().setVisible(true);
+                            new TampilinDaftar().setVisible(true);
                         } else {
                             JOptionPane.showMessageDialog(null, "email atau password salah");
                         }

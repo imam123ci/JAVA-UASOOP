@@ -3,9 +3,9 @@
 //import model.Kuis;
 public class Main {
     public static void main(String[] args) {
-        //new Kuisis();
+        new Kuisis();
         //new DaftarGame();
-        new TampilinDaftar();
+        //new TampilinDaftar();
         // try {
         //     //menggunakan database MySQL XAMPP
         //     // Database db = new Database();

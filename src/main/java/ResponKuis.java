@@ -5,9 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.Jawaban;
-import model.Kuis;
-import model.Pertanyaan;
+import model.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,6 +17,7 @@ public class ResponKuis extends JFrame{
     private int responIndex = 0;
     private int responLength = 0;
     List<Pertanyaan> petanyaans;
+
     public ResponKuis(String kodeKuis) {
         getData(kodeKuis);
         setTitle(kuis.judul);
@@ -80,7 +80,12 @@ public class ResponKuis extends JFrame{
             new Respon(petanyaans.get(this.responIndex)).setVisible(true);
             this.responIndex++;
         }else{
-            System.out.println(this.nilai);
+            int idp = (Session.idPengguna != 0) ? Session.idPengguna : 1;
+            model.Respon r = new model.Respon(idp ,kuis.idKuis);
+            r.setNilai(this.nilai);
+            r.save();
+            new Hasil(this.nilai).setVisible(true);
+            dispose();
         }
     }
 
@@ -151,12 +156,10 @@ public class ResponKuis extends JFrame{
                 boolean isCheck = jawabanCheckboxs.get(i).isSelected();
                 if(jawaban.isAnswer && isCheck){
                     ResponKuis.this.nilai++;
-                    ResponKuis.this.nextRespon();
-                    dispose();
                 }
-                
             }
-
+            ResponKuis.this.nextRespon();
+            dispose();
         }
     }
 

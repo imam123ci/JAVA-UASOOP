@@ -23,7 +23,7 @@ public class DaftarGame extends JPanel {
         tbl.setEnabled(false);
         this.selectId();
         setLayout(new GridLayout(1,1));
-        setBorder(new EmptyBorder(10,10,0,12));
+        setBorder(new EmptyBorder(10,10,10,12));
 
         add(scrollPane);
         setVisible(true);
