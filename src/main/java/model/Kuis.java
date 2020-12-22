@@ -155,12 +155,14 @@ public class Kuis {
 
     // delete kuis from databases
     // Parameter : 
-    // Output :
-    public void delete(){
+    // Output : row update
+    public int delete(){
         String q = "DELETE FROM `Kuis` WHERE `idKuis` = :id";
         this.con.createQuery(q)
         .addParameter("id", this.idKuis)
         .executeUpdate();
+
+        return this.con.getResult();
     }
 
 

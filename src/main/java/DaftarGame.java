@@ -36,7 +36,7 @@ public class DaftarGame extends JPanel {
 
         // get kuis
         Kuis kuis = new Kuis();
-        kuis.idPengguna = String.valueOf(1);
+        kuis.idPengguna = String.valueOf(Session.idPengguna);
         List<Kuis> kuiss = kuis.getByIdPengguna();
         for(Kuis k: kuiss) {
 
@@ -44,6 +44,23 @@ public class DaftarGame extends JPanel {
         }
 
         tbl.setModel(tblmodel);
+    }
+
+    void refeshData(){
+        Kuis kuis = new Kuis();
+        kuis.idPengguna = String.valueOf(Session.idPengguna);
+        List<Kuis> kuiss = kuis.getByIdPengguna();
+        Object[][] results = new String[kuiss.size()][5];
+        for(int i = 0; i< kuiss.size(); i++){
+            Kuis k = kuiss.get(i);
+            results[i][0] = String.valueOf(k.idKuis);
+            results[i][1] = k.judul;
+            results[i][2] = k.kode;
+        }
+        Object columnNames[] = {"Id Kuisis","Jusul","kode kuisis"};
+        tblmodel.setDataVector(results,columnNames);
+        tblmodel.fireTableDataChanged();
+        System.out.println("data changed");
     }
 
 }

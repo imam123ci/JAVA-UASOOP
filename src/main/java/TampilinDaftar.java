@@ -8,14 +8,16 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class TampilinDaftar extends JFrame {
+    DaftarGame DG;
     TampilinDaftar(){
         setTitle("My Kuisis");
         setSize(700, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(new DaftarGame());
-        add(new listDaftar());
+        DG = new DaftarGame();
+        add(DG);
+        add(new listDaftar(DG));
         setVisible(true);
 
     }
@@ -26,7 +28,9 @@ class listDaftar extends JPanel {
     JButton btnAdd = new JButton("Tambah");
     JButton btnClose = new JButton("Batal");
     int kuisId;
-    listDaftar() {
+    DaftarGame DG;
+    listDaftar(DaftarGame DG) {
+        this.DG = DG;
         setLayout(new GridLayout(5,2));
         this.kuisId = kuisId;
 
@@ -65,11 +69,24 @@ class listDaftar extends JPanel {
              btnDelete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Kuis K= new Kuis();
-                    String idKuis = listDaftar.this.hapusTextField.getText();
-                    K.idKuis= Integer.parseInt(idKuis);
-                    System.out.println(K.idKuis);
-                    K.delete();
+                    try {
+                        Kuis K = new Kuis();
+                        String idKuis = listDaftar.this.hapusTextField.getText();
+                        K.idKuis = Integer.parseInt(idKuis);
+                        System.out.println(K.idKuis);
+                        int affectedRows = K.delete();
+                        listDaftar.this.DG.refeshData();
+
+                        if(affectedRows > 0){
+                            JOptionPane.showMessageDialog(null, "Kuisis berhasil dihapus");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null, "tidak ada ID yang dipilih");
+                        }
+                    }
+                    catch (Exception e1) {
+//                        e1.printStackTrace();
+                    }
                 }
             });
         }

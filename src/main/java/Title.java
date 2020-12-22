@@ -58,7 +58,7 @@ class kuis extends JPanel {
                     // Insert new Kuis and return primary key
 
                     Kuis k = new Kuis(judul.getText(),kode.getText(), Session.idPengguna);
-                    k.kode = kode.getText() != "" ? kode.getText() : k.generateKode();
+                    k.kode = kode.getText().equals("") ? k.generateKode():kode.getText();
                     int kuisId = k.save();
                     //boolean kuisStatus = k.save() != -1 ? true : false;
                     new buatGame(kuisId).setVisible(true);
